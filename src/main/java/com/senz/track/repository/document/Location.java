@@ -9,7 +9,7 @@ public class Location {
 
     @Id
     private String id;
-    private String deviceId;
+    private String device;
     private String lng;
     private String lat;
 
@@ -23,10 +23,10 @@ public class Location {
     public Location() {
     }
 
-    public Location(String[] loc,String deviceId) {
+    public Location(String[] loc,String device) {
         lng=loc[0];
         lat=loc[1];
-        this.deviceId=deviceId;
+        this.device=device;
     }
 
     public String getId() {
@@ -37,12 +37,12 @@ public class Location {
         this.id = id;
     }
 
-    public String getDeviceId() {
-        return deviceId;
+    public String getDevice() {
+        return device;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public void setDevice(String device) {
+        this.device = device;
     }
 
     public String getLng() {
@@ -75,5 +75,17 @@ public class Location {
 
     public void setModifiedTime(DateTime modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id='" + id + '\'' +
+                ", device='" + device + '\'' +
+                ", lng='" + lng + '\'' +
+                ", lat='" + lat + '\'' +
+                ", createdTime=" + createdTime +
+                ", modifiedTime=" + modifiedTime +
+                '}';
     }
 }
