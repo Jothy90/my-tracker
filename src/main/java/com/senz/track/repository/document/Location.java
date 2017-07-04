@@ -1,9 +1,7 @@
 package com.senz.track.repository.document;
 
 import org.joda.time.DateTime;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 
 public class Location {
 
