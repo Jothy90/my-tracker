@@ -10,23 +10,20 @@ public class Location {
     @Id
     private String id;
     private String device;
-    private String lng;
-    private String lat;
-
-
-    @CreatedDate
-    private DateTime createdTime;
-
-    @LastModifiedDate
-    private DateTime modifiedTime;
+    private Double lng;
+    private Double lat;
+    public DateTime createdTime;
 
     public Location() {
     }
 
     public Location(String[] loc,String device) {
-        lng=loc[0];
-        lat=loc[1];
+        lng=Double.parseDouble(loc[0]);
+        lat=Double.parseDouble(loc[1]);
+        lat = Math.floor(lat) + ((Math.floor(lat * 1000000) - Math.floor(lat) * 1000000) / 600000);
+        lng = Math.floor(lng) + ((Math.floor(lng * 1000000) - Math.floor(lng) * 1000000) / 600000);
         this.device=device;
+        createdTime=DateTime.now();
     }
 
     public String getId() {
@@ -45,36 +42,20 @@ public class Location {
         this.device = device;
     }
 
-    public String getLng() {
+    public Double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(Double lng) {
         this.lng = lng;
     }
 
-    public String getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
-    }
-
-    public DateTime getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(DateTime createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public DateTime getModifiedTime() {
-        return modifiedTime;
-    }
-
-    public void setModifiedTime(DateTime modifiedTime) {
-        this.modifiedTime = modifiedTime;
     }
 
     @Override
@@ -85,7 +66,6 @@ public class Location {
                 ", lng='" + lng + '\'' +
                 ", lat='" + lat + '\'' +
                 ", createdTime=" + createdTime +
-                ", modifiedTime=" + modifiedTime +
                 '}';
     }
 }
