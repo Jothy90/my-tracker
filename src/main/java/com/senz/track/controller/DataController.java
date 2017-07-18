@@ -22,6 +22,8 @@ public class DataController {
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public String LoadMap(@RequestBody DOMessage doMessage) {
         Location location= new Location(doMessage.getMessage().split(":"),doMessage.getDeviceId());
+
+
         location.setDevice(doMessage.getDeviceId());
         System.out.println(doMessage);
         locationRepository.save(location);

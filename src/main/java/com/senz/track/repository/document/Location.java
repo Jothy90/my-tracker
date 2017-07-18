@@ -18,8 +18,8 @@ public class Location {
     public Location(String[] loc,String device) {
         lng=Double.parseDouble(loc[0]);
         lat=Double.parseDouble(loc[1]);
-        lat = Math.floor(lat) + ((Math.floor(lat * 1000000) - Math.floor(lat) * 1000000) / 600000);
-        lng = Math.floor(lng) + ((Math.floor(lng * 1000000) - Math.floor(lng) * 1000000) / 600000);
+        //lat = Math.floor(lat) + ((Math.floor(lat * 1000000) - Math.floor(lat) * 1000000) / 600000);
+        //lng = Math.floor(lng) + ((Math.floor(lng * 1000000) - Math.floor(lng) * 1000000) / 600000);
         this.device=device;
         createdTime=DateTime.now();
     }
